@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}خطای ۴۰۴{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-content not-found">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 text-center">
+                    <span>404</span>
+                    <p>محتوای شما پیدا نشد !</p>
+                </div>
+                <a href="{% url 'home' %}" class="btn-site">برگشت به خانه</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}جست و جو{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">خانه</a></li>
+    <i class="fa fa-angle-right" aria-hidden="true"></i>
+    <li class="breadcrumb-item active"><a>جست و جو</a></li>
+{% endblock %}
+{% block content %}
+<section class="posts">
+    <div class="row justify-content-center">
+        {% if post_list %}
+            {% for post in post_list %}
+                <article class="col-md-3">
+                    <img class="post-img" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                    <h2 class="title">{{ post.title }}</h2>
+                    <div class="meta">
+                        <span><i class="fa fa-calendar-o"></i>{{ post.date }}</span>
+                        <span><i class="fa fa-edit"></i>{{ post.author }}</span>
+                    </div>
+                    <p class="desc">{{ post.abstract }}</p>
+                    <a href="{% url 'single' post.pk %}" class="btn-site">ادامه</a>
+                </article>
+            {% endfor %}
+        {% else %}
+                <span class="title">مطلبی برای نمایش وجود ندارد</span>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} ویرایش{% endblock %}
+{% block content %}
+<div class="new-post">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                {% if field.label_tag == '<label for="id_title">Title:</label>' %}
+                    <label for="id_title">عنوان</label>
+                {% elif field.label_tag == '<label for="id_abstract">Abstract:</label>' %}
+                    <label for="id_abstract">خلاصه</label>
+                {% elif field.label_tag == '<label for="id_body">Body:</label>' %}
+                    <label for="id_body">محتوا</label>
+                {% elif field.label_tag == '<label for="id_photo">Photo:</label>' %}
+                    <label for="id_photo">عکس</label>
+                {% endif %}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn-publish">ویرایش</button>
+    </form>
+</div>
+{% endblock %}

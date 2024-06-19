@@ -1,0 +1,27 @@
+<div class="search_box">
+   <form action="" method="get">
+      <input type="text" name="s" placeholder="متن را وارد کنید ..">
+      <button type="submit"><i class="fa fa-search"></i></button>
+   </form>
+</div>
+<div class="menu-sidebar">
+   <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+   </ul>
+</div>
+{% if recent_posts %}
+   <div class="recent-posts">
+         {% for post in recent_posts %}
+            <a class="recent" href="{% url 'single' post.pk %}">
+               <img src="{{ post.photo.url }}" alt="">
+               <div class="body">
+                  <h3>{{ post.title }}</h3>
+                  <time>{{ post.date }}</time>
+               </div>
+            </a>
+         {% endfor %}
+   </div>
+{% endif %}

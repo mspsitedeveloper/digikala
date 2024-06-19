@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <style>
+        @font-face {
+            font-family: 'learn';
+            src: url("{% static 'fonts/Vazir.woff' %}");
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="row">
+            <div class="col-md-3">
+                {% if user.is_authenticated %}
+                    <ul class="panel">{{ user.username }}<i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <ul>
+                            <li><a href="{% url 'logout' %}">خروج</a></li>
+                            <li><a href="{% url 'new_post' %}">مطلب جدید</a></li>
+                        </ul>
+                    </ul>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn-login">ورود|ثبت نام</a>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="{% url 'home' %}">خانه</a></li>
+                        <li><a href="">وبلاگ</a>
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">وبلاگ</a>
+                                    <ul>
+                                        <li><a href="">خانه</a></li>
+                                        <li><a href="">وبلاگ</a>
+                                            <ul>
+                                                <li><a href="">خانه</a></li>
+                                                <li><a href="">وبلاگ</a></li>
+                                                <li><a href="">مقالات</a>
+                                                    <ul>
+                                                        <li><a href="">خانه</a></li>
+                                                        <li><a href="">وبلاگ</a></li>
+                                                        <li><a href="">مقالات</a></li>
+                                                        <li><a href="">درباره ما</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a href="">درباره ما</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="">مقالات</a></li>
+                                        <li><a href="">درباره ما</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="">مقالات</a>
+                                    <ul>
+                                        <li><a href="">خانه</a></li>
+                                        <li><a href="">وبلاگ</a></li>
+                                        <li><a href="">مقالات</a></li>
+                                        <li><a href="">درباره ما</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">مقالات</a></li>
+                        <li><a href="">درباره ما</a>
+                            <ul>
+                                <li><a href="">خانه</a></li>
+                                <li><a href="">وبلاگ</a></li>
+                                <li><a href="">مقالات</a></li>
+                                <li><a href="">درباره ما</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </header>
+    <main>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                {% endblock %}
+            </ol>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <ul>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                            <li><a href=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </footer>
+</body>
+</html>

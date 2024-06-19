@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}وبلاگ{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item active"><a>خانه</a></li>
+{% endblock %}
+{% block content %}
+<section class="posts">
+    <div class="row justify-content-center">
+        {% if post_list %}
+            {% for post in post_list %}
+                <article class="col-md-3">
+                    <img class="post-img" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                    <h2 class="title">{{ post.title }}</h2>
+                    <div class="meta">
+                        <span><i class="fa fa-calendar-o"></i>{{ post.date }}</span>
+                        <span><i class="fa fa-edit"></i>{{ post.author }}</span>
+                    </div>
+                    <p class="desc">{{ post.abstract }}</p>
+                    <a href="{% url 'single' post.pk %}" class="btn-site">ادامه</a>
+                </article>
+            {% endfor %}
+        {% else %}
+                <span class="title">مطلبی برای نمایش وجود ندارد</span>
+        {% endif %}
+    </div>
+    {% if post_list.has_other_pages %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% if post_list.has_previous %}
+                    <li><a class="page-link" href="?page={{ post_list.previous_page_number }}">&laquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a class="page-link" href="">&laquo;</a></li>
+                {% endif %}
+
+                {% for i in post_list.paginator.page_range %}
+                    {% if post_list.number == i %}
+                        <li class="page-item active"><a class="page-link" href="">{{ i }}</a></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}        
+                {% endfor %}
+
+                {% if post_list.has_next %}
+                    <li><a class="page-link" href="?page={{ post_list.next_page_number }}">&raquo;</a></li>
+                {% else %}
+                    <li class="disabled"><a class="page-link" href="">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+</section>
+{% endblock %}
