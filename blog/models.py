@@ -10,6 +10,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.user', on_delete=models.CASCADE)
     date = models.DateField(default=date.today())
     photo = models.ImageField(upload_to='photo/%y/%m/%d')
+    tag = models.ForeignKey('blog.tag', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
@@ -25,3 +26,9 @@ class comment(models.Model):
     
     def __str__(self):
         return self.body
+    
+class tag(models.Model):
+    title = models.TextField(null=False, blank=False)
+    
+    def __str__(self):
+        return self.title

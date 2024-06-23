@@ -1,10 +1,10 @@
 from django.forms import BaseModelForm
 from django.http import HttpResponse
-from django.views.generic import DetailView , CreateView ,View , FormView
+from django.views.generic import DetailView , CreateView ,View , FormView , ListView
 from django.views.generic.edit import UpdateView , DeleteView
 from django.urls import reverse_lazy , reverse
 from .models import Post , comment
-from .forms import PostForm ,commentForm
+from .forms import PostForm ,commentForm , SearchForm
 from django.shortcuts import render
 from django.views.generic.detail import SingleObjectMixin
 from django.core.paginator import Paginator
@@ -24,18 +24,20 @@ class Home(View):
         }
         return render(request , self.template_name , context)
 
-class Search(View):
+class Search(ListView):
     template_name = 'search.html'
-
+    model = Post
+    form_class = SearchForm
 
     def get(self , request):
         posts = Post.objects.all()
-        text_search = request.GET.get('s')
-        for post in posts :
-            if text_search in post.title :
-                sobj = post
+        if 'search' in request.GET :
+            form_class = SearchForm(request.GET)
+            if form_class.is_valid():
+                cd = form_class.cleaned_data['search']
+                posts = posts.filter(title=cd)
         context = {
-            'post_list' : sobj
+            'post_list' : posts
         }
         return render(request , self.template_name , context)
 

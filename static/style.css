@@ -146,19 +146,20 @@ header .row .col-md-3{
 }
 .new-post input{
     border: #ddd 5px solid;
-    width: 50%;
+    width: 90%;
     margin-bottom: 10px;
 }
 .new-post div{
     margin-bottom: 20px;
+    width: 100%;
 }
 .new-post textarea{
     border: #ddd 5px solid;
-    width: 50%;
+    width: 90%;
 }
 .new-post select{
     border: #ddd 5px solid;
-    width: 49%;
+    width: 90%;
 }
 .btn-publish{
     background-color: #C2FCD9;
