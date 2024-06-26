@@ -1,0 +1,48 @@
+:root{
+    --palt1:#FA7F7F;
+    --palt2:#F8FBA2;
+    --palt3:#A0E4B0;
+    --palt4:#C2FCD9;
+}
+*{
+    transition: all 0.3s ease;
+}
+.module caption{
+    background-color: var(--palt3);
+}
+body{
+    direction: rtl;
+    font-family: 'vazir';
+}
+a{
+    text-decoration: none !important;
+}
+table tbody tr td .addlink{
+    border-radius: 10px;
+    background: linear-gradient(105deg, rgba(220,255,223,1) 0%, rgba(95,255,116,1) 11%, rgba(70,255,144,1) 27%, rgba(96,236,165,1) 40%, rgba(44,255,175,1) 58%, rgba(35,255,227,1) 77%, rgba(0,236,255,1) 87%, rgba(0,206,255,1) 100%);
+    padding: 4px;
+    color: #fff !important;
+}
+.addlink:hover{
+    opacity: 0.7;
+}
+#content-main ul li .addlink{
+    border-radius: 10px;
+    background: linear-gradient(105deg, rgba(220,255,223,1) 0%, rgba(95,255,116,1) 11%, rgba(70,255,144,1) 27%, rgba(96,236,165,1) 40%, rgba(44,255,175,1) 58%, rgba(35,255,227,1) 77%, rgba(0,236,255,1) 87%, rgba(0,206,255,1) 100%);
+    padding: 4px;
+    color: #fff !important;
+    margin: 35px 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+.changelist-form-container {
+    margin-top: 18px;
+    border: 1px solid #f8f8f8;
+    width: 100%;
+    padding: 0 20px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+#changelist-form .paginator{
+    border: none !important;
+}

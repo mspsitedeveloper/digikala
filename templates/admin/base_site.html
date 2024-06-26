@@ -1,6 +1,6 @@
 {% extends 'admin/base.html' %}
 {% load static %}
-{% block title %}پنل مدیریت {% endblock %}
+{% block title %}پنل مدیریت {{ site.name }}{% endblock %}
 
 {% block branding %}
     <style>
@@ -9,7 +9,17 @@
             src: url("{% static 'fonts/vazir.woff' %}");
         }
     </style>
-    <h2 class="title">پنل مدیریت</h2>
+    <h2 class="title">پنل مدیریت {{ site.name }}</h2>
+{% endblock %}
+
+{% block extrastyle %}
+    <style>
+        @font-face {
+            font-family: 'vazir';
+            src: url("{% static 'fonts/Vazir.woff' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
 {% endblock %}
 
 {% block nav-global %}{% endblock %}
