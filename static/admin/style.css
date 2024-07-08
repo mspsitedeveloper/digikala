@@ -3,6 +3,7 @@
     --palt2:#F8FBA2;
     --palt3:#A0E4B0;
     --palt4:#C2FCD9;
+    --username : #000;
 }
 *{
     transition: all 0.3s ease;
@@ -45,4 +46,41 @@ table tbody tr td .addlink{
 }
 #changelist-form .paginator{
     border: none !important;
+}
+.img-profile{
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+}
+.profile{
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.empty-profile{
+    display: flex;
+    font-weight: 800;
+    font-size: 130px;
+    background-color: #F8FBA2;
+    color:#fff;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.main > #nav-sidebar {
+    visibility: visible !important;
+}
+.submit-row input{
+    border-radius: 10px;
+    background: linear-gradient(105deg, rgba(220,255,223,1) 0%, rgba(95,255,116,1) 11%, rgba(70,255,144,1) 27%, rgba(96,236,165,1) 40%, rgba(44,255,175,1) 58%, rgba(35,255,227,1) 77%, rgba(0,236,255,1) 87%, rgba(0,206,255,1) 100%) !important;
+    padding: 4px;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 700;
+}
+.username{
+    color: var(--username);
+    font-weight: 500;
+    margin-top: 10px;
 }
