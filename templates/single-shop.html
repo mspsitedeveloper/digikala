@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.title }}{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="">خانه</a></li>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+<li class="breadcrumb-item active"><a href="">{{ product.title }}</a></li>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="page-content single_content">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="content_bx">
+                        <img class="post-img" src="{{ product.photo.url }}" alt="{{ product.name }}">
+                        <div class="meta">
+                            <span><i class="fa fa-calendar-o"></i>{{ product.date }}</span>
+                        </div>
+                        <h1 class="title">{{ product.name }}</h1>
+                        <div class="p_text">
+                            <p>
+                                {{ product.desc }}
+                            </p>
+                        </div>
+                        {% if user.username == product.author.username %}
+                            <div class="post_actions"> 
+                                <a href="{% url 'update_product' product.slug %}" class="post-action"><i class="fa fa-edit"></i>ویرایش</a>
+                                <a href="{% url 'delete_product' product.slug %}" class="post-action"><i class="fa fa-trash"></i>حذف</a>
+                            </div>
+                        {% endif %}
+                        <div class="comments_box">
+                        
+                        </div>
+                    </div>
+                    <section class="comment-box">
+                        <h2 class="title">{{ product.commentshop_set.count }} نظر</h2>
+                        {% for comment in product.commentshop_set.all %}
+                            <div class="comment">
+                                <div class="meta">
+                                    <span>{{ comment.author }}</span>
+                                    <span><data>{{ comment.date }}</data></span>
+                                </div>
+                                <p>{{ comment.body }}</p>
+                            </div>
+                        {% endfor %}
+                        {% if user.is_authenticated %}
+                            <form method="post">
+                                {% csrf_token %}
+                                {% for f in form %}
+                                    {{ f.label_tag }}
+                                    {{ f }}
+                                {% endfor %}
+                                <button type="submit" class="btn-site">ارسال</button>
+                            </form>
+                        {% endif %}
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    {% block sidebar %}
+                        {% include 'sidebar.html' %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

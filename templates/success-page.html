@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="text-center text-success">عملیات با موقیت انجام شد</h2>
+    <div class="row links">
+        <a href="{% url 'blog' %}" class="btn-site col-md-4" style="width: 32% !important;margin:5px;">وبلاگ</a>
+        <a href="" class="btn-site col-md-4" style="width: 32% !important;margin:5px;">خانه</a>
+        <a href="{% url 'shop' %}" class="btn-site col-md-4" style="width: 32% !important;margin:5px;">فروشگاه</a>
+    </div>
+</div>
+{% endblock %}

@@ -15,7 +15,7 @@
 {% if recent_posts %}
    <div class="recent-posts">
          {% for post in recent_posts %}
-            <a class="recent" href="{% url 'single' post.pk %}">
+            <a class="recent" href="{% url 'single-post' post.pk %}">
                <img src="{{ post.photo.url }}" alt="">
                <div class="body">
                   <h3>{{ post.title }}</h3>

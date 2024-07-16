@@ -21,6 +21,7 @@ class Product(models.Model):
     date = models.DateField(verbose_name="تاریخ", default=date.today())
     Price = models.IntegerField(verbose_name="قیمت")
     category = models.ForeignKey(to=Category , on_delete=models.CASCADE)
+    author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, verbose_name='نویسنده')
 
     class Meta:
         verbose_name = "محصول"
@@ -28,3 +29,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Commentshop(models.Model):
+    body = models.TextField(null=False, blank=False , verbose_name='متن')
+    author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, verbose_name='نویسنده')
+    date = models.DateField(default=date.today() , verbose_name='تاریخ')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE , verbose_name='مقاله مادر')
+    
+    def __str__(self):
+        return self.body
+    
+    class Meta():
+        verbose_name = 'نظر'
+        verbose_name_plural = 'نظر ها'

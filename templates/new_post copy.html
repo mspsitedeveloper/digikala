@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}مقاله جدید{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="">خانه</a></li>
+<i class="fa fa-angle-right" aria-hidden="true"></i>
+<li class="breadcrumb-item active"><a href="">مقاله جدید</a></li>
+{% endblock %}
+{% block content %}
+<div class="new-post">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn-publish">انتشار</button>
+    </form>
+</div>
+{% endblock %}

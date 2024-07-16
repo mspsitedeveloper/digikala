@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} حذف{% endblock %}
+{% block content %}
+<div class="delete-post">
+    <form method="post">
+        {% csrf_token %}
+        <span>آیا می خواهید <strong>{{ product.name }}</strong> را حذف کنید</span>
+        <br>
+        <div class="row">
+            <button type="submit" class="btn-publish col-md-6">بله</button>
+            <a href="{% url 'single' product.slug %}" class="text-center d-flex col-md-4 btn-publish justify-content-center align-content-center flex-wrap">خیر</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -184,10 +184,15 @@ header .row .col-md-3{
 }
 .single_content .p_text p{
     line-height: 2;
+    display: inline-block;
     font-size: 20px;
     color: #020202;
     margin-top: 20px;
     margin-right: 10px;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .single_content .post_tags{
     margin: 15px 0;
@@ -253,6 +258,10 @@ article .title{
 article p.desc{
     color: #7c7c7c;
     margin-right: 5px;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .single_content .post-img{
     width: auto;

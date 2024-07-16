@@ -26,7 +26,7 @@ class comment(models.Model):
     body = models.TextField(null=False, blank=False , verbose_name='متن')
     author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, verbose_name='نویسنده')
     date = models.DateField(default=timezone.now , verbose_name='تاریخ')
-    post = models.ForeignKey('blog.post', on_delete=models.CASCADE , verbose_name='مقاله مادر')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE , verbose_name='مقاله مادر')
     
     def __str__(self):
         return self.body
