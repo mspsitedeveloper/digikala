@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}مقاله جدید{% endblock %}
+{% block title %}کالا جدید{% endblock %}
 {% block breadcrumb %}
-<li class="breadcrumb-item"><a href="">خانه</a></li>
-<i class="fa fa-angle-right" aria-hidden="true"></i>
-<li class="breadcrumb-item active"><a href="">مقاله جدید</a></li>
+<li class="breadcrumb-item"><a href="{% url 'home' %}"> خانه </a></li>
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+<li class="breadcrumb-item"><a href="{% url 'shop' %}"> فروشگاه </a></li>
+<i class="fa fa-angle-left" aria-hidden="true"></i>
+<li class="breadcrumb-item active">کالا جدید </li>
 {% endblock %}
 {% block content %}
 <div class="new-post">

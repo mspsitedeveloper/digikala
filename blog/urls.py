@@ -8,6 +8,7 @@ from .views import (
     Search ,
 )
 urlpatterns = [
+    path('', Home.as_view(), name='home'),
     path('', Home.as_view(), name='blog'),
     path('post/new', NewPost.as_view(), name='new_post'),
     path('post/<int:pk>', Single.as_view(), name="single-post"),

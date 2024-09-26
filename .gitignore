@@ -14,8 +14,11 @@ media
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
+digikala.code-workspace
+.vscode/**/settings.json
 .idea/**/dictionaries
 .idea/**/shelf
+.gitignore
 
 # AWS User-specific
 .idea/**/aws.xml

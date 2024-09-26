@@ -1,0 +1,29 @@
+<div class="search_box">
+   <form action="" method="get">
+      <input type="text" name="s" placeholder="متن را وارد کنید ..">
+      <button type="submit"><i class="fa fa-search"></i></button>
+   </form>
+</div>
+<div class="menu-sidebar">
+   <ul>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+   </ul>
+</div>
+{% if recent_products %}
+   <div class="recent-posts">
+         {% for product in recent_products %}
+            <a class="recent" href="{% url 'single-shop' product.slug %}">
+               <img src="{{ product.photo.url }}" alt="">
+               <div class="body">
+                  <h3>{{ product.name }}</h3>
+                  <time>{{ product.date }}</time>
+               </div>
+            </a>
+         {% endfor %}
+   </div>
+{% else %}
+   <h3>هیچ چیزی برای نمایش وجود ندارد.</h3>
+{% endif %}

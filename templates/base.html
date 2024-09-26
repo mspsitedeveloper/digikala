@@ -27,6 +27,7 @@
                         <ul>
                             <li><a href="{% url 'logout' %}">خروج</a></li>
                             <li><a href="{% url 'new_post' %}">مطلب جدید</a></li>
+                            <li><a href="{% url 'new-product' %}">کالا جدید</a></li>
                         </ul>
                     </ul>
                 {% else %}
@@ -36,65 +37,22 @@
             <div class="col-md-6">
                 <div class="main-menu">
                     <ul>
-                        <li><a href="{% url 'blog' %}">خانه</a></li>
-                        <li><a href="">وبلاگ</a>
-                            <ul>
-                                <li><a href="">خانه</a></li>
-                                <li><a href="">وبلاگ</a>
-                                    <ul>
-                                        <li><a href="">خانه</a></li>
-                                        <li><a href="">وبلاگ</a>
-                                            <ul>
-                                                <li><a href="">خانه</a></li>
-                                                <li><a href="">وبلاگ</a></li>
-                                                <li><a href="">مقالات</a>
-                                                    <ul>
-                                                        <li><a href="">خانه</a></li>
-                                                        <li><a href="">وبلاگ</a></li>
-                                                        <li><a href="">مقالات</a></li>
-                                                        <li><a href="">درباره ما</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="">درباره ما</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="">مقالات</a></li>
-                                        <li><a href="">درباره ما</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">مقالات</a>
-                                    <ul>
-                                        <li><a href="">خانه</a></li>
-                                        <li><a href="">وبلاگ</a></li>
-                                        <li><a href="">مقالات</a></li>
-                                        <li><a href="">درباره ما</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="">درباره ما</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">مقالات</a></li>
-                        <li><a href="">درباره ما</a>
-                            <ul>
-                                <li><a href="">خانه</a></li>
-                                <li><a href="">وبلاگ</a></li>
-                                <li><a href="">مقالات</a></li>
-                                <li><a href="">درباره ما</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <li><a href="{% url 'home' %}">خانه</a></li>
+                        <li><a href="{% url 'blog' %}">وبلاگ</a></li>
+                        <li><a href="{% url 'shop' %}">فروشگاه</a></li>
+                        <li><a href="">درباره ما</a></li>
                 </div>
             </div>
             <div class="col-md-3"></div>
         </div>
     </header>
-    <main>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% block breadcrumb %}
-                {% endblock %}
-            </ol>
-        </nav>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% block breadcrumb %}
+            {% endblock %}
+        </ol>
+    </nav>
+    <main style="display:flex;justify-content:center;">
         {% block content %}
         {% endblock %}
     </main>

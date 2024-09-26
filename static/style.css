@@ -139,6 +139,7 @@ header .row .col-md-3{
 }
 .new-post{
     padding: 10px;
+    width: 100%;
 }
 .new-post form{
     margin-top: 20px;

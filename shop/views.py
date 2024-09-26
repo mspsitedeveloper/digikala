@@ -61,7 +61,7 @@ class Single(View):
         view = commentpost.as_view()
         return view(request, *args , **kwargs)
 
-class NewPost(CreateView):
+class NewProduct(CreateView):
     model = Product
     form_class = ProductForm
     template_name = 'new_product.html'    
