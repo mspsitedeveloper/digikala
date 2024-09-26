@@ -47,10 +47,6 @@ class commentpost(SingleObjectMixin, FormView):
         comment.product = self.object
         comment.save()
         return super().form_valid(form)
-    
-    def get_success_url(self):
-        post = self.get_object()
-        return reverse("single", kwargs= {"slug" : post.slug })
 
 class Single(View):
     def get(self , request , *args , **kwargs):
@@ -67,7 +63,26 @@ class NewProduct(CreateView):
     template_name = 'new_product.html'    
     def form_valid(self, form):
         post = form.save(commit=False)
-        post.extract = post.body[:100]
+        post.extract = post.desc[:100]
+        post.author = self.request.user
+        price = post.Price
+        price = str(price)
+        lp = len(price)
+        pricen = ""
+        count = 0
+        while lp != 0:
+            if count==3:
+                count=0
+                pricen += ","
+            pricen += price[lp-1]
+            lp -= 1
+            count += 1
+        pri = ""
+        l = len(pricen)
+        while l != 0:
+            pri += pricen[l-1]
+            l -= 1
+        post.Price = pri
         post.save()
         return super().form_valid(form)
 class UpdatePost(UpdateView):
@@ -77,11 +92,30 @@ class UpdatePost(UpdateView):
     def form_valid(self, form):
         post = form.save(commit=False)
         post.extrtact = post.desc[:100]
+        price = post.Price
+        price = str(price)
+        lp = len(price)
+        pricen = ""
+        count = 0
+        while lp != 0:
+            if count==3:
+                count=0
+                pricen += ","
+            pricen += price[lp-1]
+            lp -= 1
+            count += 1
+        pri = ""
+        l = len(pricen)
+        while l != 0:
+            pri += pricen[l-1]
+            l -= 1
+        post.Price = pri
         post.save()
         return super().form_valid(form)
+
     def get_success_url(self):
         post = self.get_object()
-        return reverse("single", kwargs= {"slug" : post.slug })
+        return reverse("single-shop", kwargs= {"slug" : post.slug })
 
 class DeletePost(DeleteView):
     model = Product

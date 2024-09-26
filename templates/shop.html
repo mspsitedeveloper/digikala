@@ -2,23 +2,24 @@
 {% load static %}
 {% block title %}فروشگاه{% endblock %}
 {% block breadcrumb %}
-    <li class="breadcrumb-item active"><a>خانه</a></li>
+    <li class="breadcrumb-item active">خانه</li>
 {% endblock %}
 {% block content %}
 <section class="posts">
     <div class="row justify-content-center">
-        {% if product_list %}
-            {% for post in product_list %}
-                <article class="col-md-3">
-                    <img class="post-img" src="{{ post.photo.url }}" alt="{{ post.title }}">
-                    <h2 class="title">{{ post.name }}</h2>
-                    <div class="meta">
-                        <span><i class="fa fa-calendar-o"></i>{{ post.date }}</span>
-                        <!-- <span><i class="fa fa-edit"></i>{{ post.author }}</span> -->
-                    </div>
-                    <p class="desc">{{ post.extract }}</p>
-                    <a href="{% url 'single-shop' post.slug %}" class="btn-site">ادامه</a>
-                </article>
+        {% if recent_products %}
+              {% for post in recent_products %}
+                <a href="{% url 'single-shop' post.slug %}">
+                    <article class="col-md-3">
+                        <img class="post-img" src="{{ post.photo.url }}" alt="{{ post.title }}">
+                        <h2 class="title">{{ post.name }}</h2>
+                        <div class="meta">
+                            <span><i class="fa fa-calendar-o"></i>{{ post.date }}</span>
+                            <!-- <span><i class="fa fa-edit"></i>{{ post.author }}</span> -->
+                        </div>
+                        <p class="desc">{{ post.extract }}</p>
+                    </article>
+                </a>
             {% endfor %}
         {% else %}
                 <span class="title">مطلبی برای نمایش وجود ندارد</span>
