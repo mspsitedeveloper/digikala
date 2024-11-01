@@ -82,7 +82,7 @@ class NewProduct(CreateView):
         while l != 0:
             pri += pricen[l-1]
             l -= 1
-        post.Price = pri
+        post.Pric = pri
         post.save()
         return super().form_valid(form)
 class UpdatePost(UpdateView):

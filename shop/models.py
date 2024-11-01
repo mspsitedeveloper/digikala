@@ -22,8 +22,9 @@ class Product(models.Model):
     photo = models.ImageField(verbose_name="تصویر", upload_to="photo/%y/%m/%d")
     date = models.DateField(verbose_name="تاریخ", default=date.today())
     Price = models.CharField(verbose_name="قیمت" ,max_length=10)
+    Pric = models.CharField(verbose_name="قیمت" ,max_length=10)
     category = models.ForeignKey(to=Category , on_delete=models.CASCADE)
-    author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, verbose_name='نویسنده')
+    author = models.ForeignKey('accounts.UserModel', on_delete=models.CASCADE, verbose_name='نویسنده')
 
     class Meta:
         verbose_name = "محصول"
@@ -37,7 +38,7 @@ class Product(models.Model):
     
 class Commentshop(models.Model):
     body = models.TextField(null=False, blank=False , verbose_name='متن')
-    author = models.ForeignKey('accounts.CustomUser', on_delete=models.CASCADE, verbose_name='نویسنده')
+    author = models.ForeignKey('accounts.UserModel', on_delete=models.CASCADE, verbose_name='نویسنده')
     date = models.DateField(default=date.today() , verbose_name='تاریخ')
     product = models.ForeignKey(Product, on_delete=models.CASCADE , verbose_name='مقاله مادر')
     

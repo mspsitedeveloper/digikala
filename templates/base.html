@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/style.css' %}">
     <style>
         @font-face {
             font-family: 'learn';
@@ -26,6 +27,7 @@
                     <ul class="panel">{{ user.username }}<i class="fa fa-angle-down" aria-hidden="true"></i>
                         <ul>
                             <li><a href="{% url 'logout' %}">خروج</a></li>
+                            <li><a href="{% url 'pro-profile' user.pk %}">پروفایل</a></li>
                             <li><a href="{% url 'new_post' %}">مطلب جدید</a></li>
                             <li><a href="{% url 'new-product' %}">کالا جدید</a></li>
                         </ul>
